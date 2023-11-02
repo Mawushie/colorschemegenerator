@@ -23,9 +23,15 @@ document.addEventListener("click", (e) => {
   }
 });
 const copyText = (text) => {
-  console.log(text);
-  navigator.clipboard.writeText(text);
-  alert(`Color code copied to clipboard`);
+  // console.log(text);
+  navigator.clipboard.writeText(text).then(
+    () => {
+      alert(`Color code copied to clipboard`);
+    },
+    () => {
+      console.error("Failed to copy");
+    }
+  );
 };
 
 pickColorBtn.addEventListener("click", () => {
